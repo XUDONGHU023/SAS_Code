@@ -98,11 +98,11 @@ run;
 	*        
 
 proc sort data=work.test;
-	by descending Instock;        *by descending Instock notsorted;
+	by descending Instock;
 
 data work.test2;
 	set work.test;
-	by descending Instock;
+	by descending Instock;         *by descending Instock notsorted;
 *	if first.Instock = last.Instock;
 run;
 title 'work.test2';
@@ -153,20 +153,6 @@ run;
 title 'work.shoes_regions';
 proc print data=work.shoes_regions;
 run;
-*********************************************************************/
-;
-/*********************************************************************
-/**/
-proc means data=saslib.Inventory mean std var cv range qrange maxdec=2;
-var Instock Price Cost;
-run;
-
-proc print data=saslib.Inventory;
-run;
-
-
-
-
 *********************************************************************/
 ;
 /*********************************************************************

@@ -1,0 +1,55 @@
+===================================================================================
+				       PROC MEANS
+===================================================================================
+运用 proc means 可以计算数值型变量的均值、中位数、众数等描述性统计量。其基本用法为：
+proc means data=数据集 统计量关键字选项 其他选项;
+var变量1 变量2...;
+run;
+其中，如果忽略 var 语句，则分析数据集中所有数值型变量。其他选项可指定统计量的输出格
+式等，如 maxdec= 指定小数位数。统计量关键字选项如下：
+---------------+-------------------------------+---------------+------------------
+统计量/选项	说明				统计量/选项	说明
+---------------+-------------------------------+---------------+------------------
+DATA		数据集				P20		百分位数
+CHARTYPE	指定输出数据集中_TYPE_变量是	P25		百分位数
+		其二进制值的字符表示		P30		百分位数
+DESCEND						P40		百分位数
+DESCENDING	DESCEND别名			P50		百分位数
+DESCENDTYPES	DESCEND别名			P60		百分位数
+IDMIN						P70		百分位数
+NWAY		只输出包含所有分类变量的组合	P75		百分位数
+EXCLNPWGT	排除非正权重值的观测		P80		百分位数
+EXCLNPWGTS	EXCLNPWGT别名			P90		百分位数
+NOTRAP		禁用浮点异常恢复		P95		百分位数
+CLASSDATA	分类变量取值数据集，强制输出	P99		百分位数
+COMPLETETYPES	包含分类变量的所有组合情况	Q1		较小四分位数
+EXCLUSIVE	排除数据集中分类变量值不在	Q3		较大四分位数
+		CLASSDATA的观测			QRANGE		四分位数极差
+ORDER		指定生成排序变量组合的顺序	SUMWGT		权重和
+PROBT						CSS		校正平方和
+ALPHA		显著性水平，默认0.05		USS		未校平方和
+CLM		95%的双侧置信区间		T		T检验统计量
+LCLM		均值以下95%的单侧置信区间	VARDEF		方差计算方法
+UCLM		均值以上95%的单侧置信区间	VAR		方差
+SKEWNESS	偏度				STDDEV		标准差
+KURTOSIS	峰度				STDERR		标准误差
+CV		变异系数			PRINT		打印结果
+N		非缺失值个数			NOPRINT		不打印结果
+NMISS		缺失值个数			NOLABELS	
+MISSING		将缺失值视为一种有效值		NONOBS	
+SUM		总和				PRINTALL	
+MAX		最大值				PRINTALLTYPES	
+MIN		最小值				PRINTIDS	
+RANGE		极差				PRINTIDVARS	
+MEAN		均值				STACKODS	
+MEDIAN		中位数				STACKODSOUTPUT	生成ODS OUTPUT语句
+MODE		众数						输出的数据集的序号
+QMARKERS	指定P2分位数估计方法的默认	NDEC	
+		标记数				MAXDEC		保留小数位数
+QMETHOD		指定分位数的计算方法		THREADS		启用数据集并行处理
+QNTLDEF						NOTHREADS	禁用数据集并行处理
+PCTLDEF		百分位数计算方法		SUMSIZE		分类变量进行数据汇
+P1		百分位数					总时使用的内存
+P5		百分位数			FW		字段的打印宽度，不
+P10		百分位数					影响数据集中的数据
+
